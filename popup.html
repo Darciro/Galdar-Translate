@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		body {
+			width: 315px;
+			padding: 15px;
+			background-color: #fafafa;
+		}
+		h1 {
+			margin-top: 0;
+			line-height: 50px;
+		}
+		h1 img {
+			max-width: 50px;
+			float: left;
+			margin-right: 15px;
+		}
+		#galdar-translate-form {
+			border-radius: 8px;
+			box-shadow: 0 1px 4px 0 rgba(0,0,0,0.37);
+			padding: 15px 15px 30px;
+			background: #fff;
+		}
+		#galdar-translate-form select {
+			width: 100%;
+			margin-bottom: 15px;
+			padding: 7px 0;
+			color: #4285f4;
+			border-top: none;
+			border-left: none;
+			border-right: none;
+			border-bottom: solid 3px #4284f3;
+			background: none;
+		}
+		#galdar-translate-form textarea {
+			width: -webkit-fill-available;
+			border: 1px solid rgba(0,0,0,0.12);
+			padding: 7px;
+			background: none;
+			display: block;
+			border-radius: 8px;
+			min-height: 50px;
+		}
+		.target-lang {
+			margin-top: 30px;
+		}
+		.text-right {
+			text-align: right;
+		}
+		.translate {
+			border: none;
+			border-radius: 4px;
+			font-family: 'Google Sans', Arial, sans-serif;
+			font-size: 14px;
+			font-weight: 600;
+			letter-spacing: .6px;
+			line-height: 24px;
+			padding-bottom: 6px;
+			padding-left: 24px;
+			padding-right: 24px;
+			padding-top: 6px;
+			pointer-events: initial;
+			text-transform: none;
+			background: #1A73E8;
+			color: #FFFFFF;
+			transform: scale(1, 1);
+			transition: transform 300ms ease-in-out;
+			box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+			text-decoration: none;
+			-webkit-font-smoothing: antialiased;
+			cursor: pointer;
+			margin-top: 30px;
+		}
+	</style>
+</head>
+<body>
+
+	<h1><img src="img/icon128.png">Galdar Translate</h1>
+
+	<form id="galdar-translate-form">
+		<select class="source-lang">
+			<option selected disabled>Source</option>
+		</select>
+		<textarea id="text-to-translate"></textarea>
+
+		<select class="target-lang">
+			<option selected disabled>Target</option>
+		</select>
+		<textarea class="target"></textarea>
+
+		<div class="text-right">
+			<button class="translate">Translate</button>
+		</div>
+	</form>
+
+	<script src="jquery-3.3.1.min.js"></script>
+	<script src="g-api.js"></script>
+	<script src="popup.js"></script>
+</body>
+</html>

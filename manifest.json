@@ -1,0 +1,20 @@
+{
+    "name": "Galdar Translate",
+    "version": "1.0",
+    "description": "TODO",
+    "manifest_version": 2,
+    "permissions": ["activeTab", "declarativeContent", "storage", "tabs"],
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    },
+    "icons": {
+        "16": "img/icon16.png",
+        "32": "img/icon32.png",
+        "48": "img/icon48.png",
+        "128": "img/icon128.png"
+    },
+    "browser_action": {
+        "default_popup": "popup.html"
+    }
+}
