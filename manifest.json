@@ -1,7 +1,7 @@
 {
     "name": "Galdar Translate",
-    "version": "2.0",
-    "description": "TODO",
+    "version": "2.1",
+    "description": "Utilize todo o poder do Google Tradutor de forma simples e intuitiva - sem precisar sair da página ativa no seu navegador",
     "manifest_version": 2,
     "permissions": [
         "activeTab",

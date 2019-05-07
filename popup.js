@@ -100,10 +100,10 @@ function setDefaultLanguage() {
 
 		if (msg.selectedText !== '') {
 			$('#text-to-translate').val(msg.selectedText);
-			$('.translate').text('Translating');
+			$('.translate').text('Traduzindo');
 			if( $(".target-lang").val() !== null ) {
 				$('.translate').trigger('click');
-				$('.translate').text('Translate');
+				$('.translate').text('Traduzir');
 			}
 		}
 	});
@@ -169,9 +169,10 @@ $(function() {
 
 		if (msg.selectedText !== '') {
 			$('#text-to-translate').val(msg.selectedText);
-			$('.translate').text('Translating');
+			$('.translate').text('Traduzindo');
 			if( $(".target-lang").val() !== null ) {
 				$('.translate').trigger('click');
+				$('.translate').text('Traduzir');
 			}
 		}
 	});
