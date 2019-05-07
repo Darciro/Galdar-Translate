@@ -1,13 +1,3 @@
-$('#changeColor').click(function() {
-	$(this).css('background', 'green');
-	console.log( 'Foo' );
-	// chrome.runtime.sendMessage({ myMessage: 'value' })
-	chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-		chrome.tabs.sendMessage( tabs[0].id, { downloadFrom9Gag: true } );
-	});
-});
-
-
 // Enter an API key from the Google API Console:
 // https://console.developers.google.com/apis/credentials
 const apiKey = "AIzaSyAIv3JEYpXHvuyK4KIcLV69zAK62YkJ-_s";
@@ -101,11 +91,22 @@ function getLanguages() {
 function setDefaultLanguage() {
 	var userLang = navigator.language || navigator.userLanguage;
 	if( userLang.split('-')[0].length ){
-		console.log( userLang.split('-')[0] );
 		$('.target-lang').val( userLang.split('-')[0] );
 	}
 
 	$('.source-lang').val( 'en' );
+	chrome.runtime.sendMessage({ action: "getSelectedText" });
+	chrome.extension.onMessage.addListener(function(msg, sender, sendResponse) {
+
+		if (msg.selectedText !== '') {
+			$('#text-to-translate').val(msg.selectedText);
+			$('.translate').text('Translating');
+			if( $(".target-lang").val() !== null ) {
+				$('.translate').trigger('click');
+				$('.translate').text('Translate');
+			}
+		}
+	});
 }
 
 // Convert country code to country name
@@ -161,5 +162,17 @@ $(function() {
 		}
 
 		return false;
+	});
+
+	chrome.runtime.sendMessage({ action: "getSelectedText" });
+	chrome.extension.onMessage.addListener(function(msg, sender, sendResponse) {
+
+		if (msg.selectedText !== '') {
+			$('#text-to-translate').val(msg.selectedText);
+			$('.translate').text('Translating');
+			if( $(".target-lang").val() !== null ) {
+				$('.translate').trigger('click');
+			}
+		}
 	});
 });

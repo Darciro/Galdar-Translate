@@ -1,18 +1,17 @@
 'use strict';
+var selectedText = '';
+chrome.extension.onMessage.addListener(function(msg, sender, sendResponse) {
+	// console.log(msg, sender, sendResponse);
+	if (msg.action == 'setSelectedText') {
+		selectedText = msg.value;
+	}
 
-chrome.runtime.onInstalled.addListener(function() {
+	if (msg.action == 'getSelectedText') {
+		// console.log( selectedText );
+		chrome.runtime.sendMessage({ selectedText: selectedText });
+	}
 
-	/*chrome.storage.sync.set({color: '#3aa757'}, function() {
-		console.log('The color is green.');
-	});*/
-
-	/* chrome.declarativeContent.onPageChanged.removeRules(undefined, function() {
-		chrome.declarativeContent.onPageChanged.addRules([{
-			conditions: [new chrome.declarativeContent.PageStateMatcher({
-				// pageUrl: {hostEquals: 'developer.chrome.com'},
-				pageUrl: {hostEquals: '9gag.com'},
-			})],
-			actions: [new chrome.declarativeContent.ShowPageAction()]
-		}]);
-	});*/
+	if (msg.action == 'open_dialog_box') {
+		$('#left-sidebar').css('background', 'rebeccapurple')
+	}
 });
